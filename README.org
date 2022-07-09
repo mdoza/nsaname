@@ -1,0 +1,46 @@
+* NSAname
+
+Generate NSA style project names.
+
+** Usage
+
+#+BEGIN_SRC sh
+  $ nsaname
+  diamond trinity
+#+END_SRC
+
+Because =nsaname= outputs to standard output you can just use standard tools to
+manipulate the output.
+
+*** Examples
+
+#+BEGIN_SRC sh
+  $ # Generate a one-word project name.
+  $ nsaname | awk '{print $1 $2}'
+  violetmare
+#+END_SRC
+
+#+BEGIN_SRC sh
+  $ # Generate a project name with a dash between the words.
+  $ nsaname | awk '{print $1 "-" $2}'
+  green-drum
+#+END_SRC
+
+#+BEGIN_SRC sh
+  $ # Flip the adjective and object.
+  $ nsaname | awk '{print $2 "-" $1}'
+  waffle-slimy
+#+END_SRC
+
+#+BEGIN_SRC sh
+  $ # Upcase the project words.
+  $ nsaname | awk '{print toupper($1) " " toupper($2)}'
+  URBAN TRANSISTOR
+#+END_SRC
+
+#+BEGIN_SRC sh
+  $ # One word, uppercase project name.
+  $ nsaname | awk '{print toupper($1) toupper($2)}'
+  GLASSCHEF
+#+END_SRC
+
